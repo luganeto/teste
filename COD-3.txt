@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Total value calculator by quantity of items</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        text-align: center;
+      }
+      form {
+        max-width: 400px;
+        margin: auto;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      input[type="number"],
+      input[type="text"] {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        width: 100%;
+      }
+      button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      .total-cost {
+        font-weight: bold;
+        font-size: 24px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Total value calculator by quantity of items</h1>
+    <form>
+      <label for="quantity-v3">Quantity of items (501and over orders):</label>
+      <input type="number" id="quantity-v3" name="quantity-v3" min="501" max="20000000000000000000" value="501">
+
+      <label for="additional-items-v3">Additional items per order:</label>
+      <input type="number" id="additional-items-v3" name="additional-items-v3" value="0">
+
+      <label for="promotional-inserts-v3">Promotional inserts per order:</label>
+      <input type="number" id="promotional-inserts-v3" name="promotional-inserts-v3" value="0">
+
+      <button type="button" onclick="calculateTotalV3()">Calculate total value</button>
+
+      <label for="total-cost-v3">Total value:</label>
+      <input type="text" id="total-cost-v3" name="total-cost-v3" class="total-cost" readonly>
+    </form>
+
+    <script>
+      function calculateTotalV3() {
+        var quantityV3 = parseInt(document.getElementById('quantity-v3').value);
+        var additionalItemsV3 = parseInt(document.getElementById('additional-items-v3').value);
+        var promotionalInsertsV3 = parseInt(document.getElementById('promotional-inserts-v3').value);
+        var totalCostV3 = quantityV3 * 2.00 + additionalItemsV3 * 0.40 + promotionalInsertsV3 * 0.20;
+
+        document.getElementById('total-cost-v3').value = "$" + totalCostV3.toFixed(2);
+      }
+    </script>
+  </body>
+</html>

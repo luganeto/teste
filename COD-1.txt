@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Total value calculator by quantity of items</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        text-align: center;
+      }
+      form {
+        max-width: 400px;
+        margin: auto;
+      }
+      label {
+        display: block;
+        margin-top: 10px;
+      }
+      input[type="number"],
+      input[type="text"] {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        width: 100%;
+      }
+      button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      #total-cost {
+        font-weight: bold;
+        font-size: 24px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Total value calculator by quantity of items</h1>
+    <form>
+      <label for="quantity">Quantity of items (50-200):</label>
+      <input type="number" id="quantity" name="quantity" min="50" max="200" value="50">
+
+      <label for="additional-items">Additional items per order:</label>
+      <input type="number" id="additional-items" name="additional-items" value="0">
+
+      <label for="promotional-inserts">Promotional inserts per order:</label>
+      <input type="number" id="promotional-inserts" name="promotional-inserts" value="0">
+
+      <button type="button" onclick="calculateTotal()">Calculate total value</button>
+
+      <label for="total-cost">Total value:</label>
+      <input type="text" id="total-cost" name="total-cost" readonly>
+    </form>
+
+    <script>
+      function calculateTotal() {
+        var quantity = parseInt(document.getElementById('quantity').value);
+        var additionalItems = parseInt(document.getElementById('additional-items').value);
+        var promotionalInserts = parseInt(document.getElementById('promotional-inserts').value);
+        var totalCost = quantity * 2.75 + additionalItems * 0.75 + promotionalInserts * 0.20;
+
+        document.getElementById('total-cost').value = "$" + totalCost.toFixed(2);
+      }
+    </script>
+  </body>
+</html>
